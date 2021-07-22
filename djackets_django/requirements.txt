@@ -1,0 +1,7 @@
+bulma
+pillow
+django-rest-framework
+django-cors-headers
+django
+djoser
+stripe
