@@ -50,6 +50,7 @@ export default {
         .get(`/api/v1/products/${categorySlug}/${productSlug}`)
         .then((response) => {
           this.product = response.data;
+          document.title = `${this.product.name} | Djackets`;
         })
         .catch((error) => {
           console.log(error);
