@@ -47,7 +47,25 @@ export default {
   data() {
     return {
       showMobileMenu: false,
+      cart: {
+        item: [],
+      },
     };
+  },
+  beforeCreate() {
+    this.$store.commit('intializeStore');
+  },
+  mounted() {
+    this.cart = this.$store.state.cart;
+  },
+  computed: {
+    cartTotalLength() {
+      let totalLength = 0;
+      for (let i = 0; i < this.state.cart.item.length; i += 1) {
+        totalLength = this.cart.items[i].quantity;
+      }
+      return totalLength;
+    },
   },
 };
 
