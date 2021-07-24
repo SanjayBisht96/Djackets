@@ -18,9 +18,6 @@ export default createStore({
       }
     },
     addToCart(state, item) {
-      console.log(state);
-      console.log(state.cart);
-      console.log(state.cart.items);
       if (state.cart.items.length > 0) {
         const exists = state.cart.items.filter((i) => i.product.id === item.product.id);
         if (exists) {
@@ -31,6 +28,9 @@ export default createStore({
         state.cart.items.push(item);
       }
       localStorage.setItem('cart', JSON.stringify(state.cart));
+    },
+    setLoadingStatus(state, status) {
+      state.isLoading = status;
     },
   },
   actions: {
